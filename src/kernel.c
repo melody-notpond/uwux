@@ -3,8 +3,8 @@
 void kinit(unsigned long long hartid, void* fdt) {
     (void) hartid;
     (void) fdt;
-	sbi_console_putchar('a');
+    sbi_console_putchar('a');
 
-	while(1);
+    while(1);
 }
 

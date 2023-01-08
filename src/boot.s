@@ -5,13 +5,13 @@
 # a1 - pointer to flattened device tree
 
 _start:
-	# Initialise stack pointer
+    # Initialise stack pointer
 
-	la sp, stack_top
-	mv fp, sp
+    la sp, stack_top
+    mv fp, sp
 
-	j kinit
+    j kinit
 
 finish:
-	j finish
+    j finish
 
