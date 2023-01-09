@@ -20,12 +20,33 @@ void kprintfv(char* format, va_list va) {
 
                 case 'x': {
                     int i = va_arg(va, int);
+                    sbi_console_putchar('0');
+                    sbi_console_putchar('x');
                     if (i == 0) {
                         sbi_console_putchar('0');
                     } else {
                         char buffer[8];
                         for (int j = 0; i != 0; j++, i /= 16) {
                             buffer[8 - j - 1] = "0123456789abcdef"[i % 16];
+                        }
+                        for (int j = 0; j < 8; j++) {
+                            sbi_console_putchar(buffer[j]);
+                        }
+                    }
+
+                    break;
+                }
+
+                case 'X': {
+                    int i = va_arg(va, int);
+                    sbi_console_putchar('0');
+                    sbi_console_putchar('x');
+                    if (i == 0) {
+                        sbi_console_putchar('0');
+                    } else {
+                        char buffer[8];
+                        for (int j = 0; i != 0; j++, i /= 16) {
+                            buffer[8 - j - 1] = "0123456789ABCDEF"[i % 16];
                         }
                         for (int j = 0; j < 8; j++) {
                             sbi_console_putchar(buffer[j]);
